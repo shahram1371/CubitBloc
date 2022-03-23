@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit_bloc/bloc/weather_bloc.dart';
 import 'package:flutter_cubit_bloc/cubit/weather_cubit.dart';
+import 'package:flutter_cubit_bloc/data/weather_repository.dart';
 
 class CityInputField extends StatelessWidget {
   const CityInputField({Key? key}) : super(key: key);
@@ -18,6 +20,11 @@ class CityInputField extends StatelessWidget {
   }
 
   void submitCityName(BuildContext context, String cityName) {
-    context.read<WeatherCubit>().getWeather(cityName);
+    // final bloc = WeatherBloc(FakeWeatherRepository());
+    // bloc.add(GetWeather(cityName: cityName));
+    BlocProvider.of<WeatherBloc>(context).add(GetWeather(cityName: cityName));
+
+    // print(cityName);
+    // context.read<WeatherCubit>().getWeather(cityName);
   }
 }

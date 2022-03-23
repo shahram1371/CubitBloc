@@ -12,10 +12,10 @@ class Weather {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is Weather &&
-      other.cityName == cityName &&
-      other.temperatureCelsius == temperatureCelsius;
+        other.cityName == cityName &&
+        other.temperatureCelsius == temperatureCelsius;
   }
 
   @override

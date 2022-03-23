@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit_bloc/bloc/weather_bloc.dart';
 import 'package:flutter_cubit_bloc/cubit/weather_cubit.dart';
 import 'package:flutter_cubit_bloc/data/weather_repository.dart';
 import 'package:flutter_cubit_bloc/pages/weather_search_page.dart';
@@ -14,11 +15,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       title: 'Flutter Demo',
-      home: BlocProvider(create: 
-      (context) => WeatherCubit(FakeWeatherRepository()),
-      child: const WeatherSearchPage()),
+      home: BlocProvider<WeatherBloc>(
+          create: (context) => WeatherBloc(FakeWeatherRepository()),
+          child: const WeatherSearchPage()),
     );
   }
 }

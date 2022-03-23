@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_cubit_bloc/cubit/weather_cubit.dart';
+import 'package:flutter_cubit_bloc/bloc/weather_bloc.dart';
+// import 'package:flutter_cubit_bloc/cubit/weather_cubit.dart';
 import 'package:flutter_cubit_bloc/data/model/weather.dart';
 import 'package:flutter_cubit_bloc/pages/city_input_field.dart';
 
@@ -16,7 +17,7 @@ class WeatherSearchPage extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.only(right: 16, left: 16),
         alignment: Alignment.center,
-        child: BlocConsumer<WeatherCubit, WeatherState>(
+        child: BlocConsumer<WeatherBloc, WeatherState>(
           listener: (context, state) {
             if (state is WeatherError) {
               ScaffoldMessenger.of(context)
